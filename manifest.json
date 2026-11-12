@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "K-Beauty Margin Side Panel",
+    "version": "1.0",
+    "description": "화면 옆에 나타나는 간단한 사이드 패널 계산기",
+    "permissions": ["sidePanel"],
+    "host_permissions": [
+    "http://127.0.0.1:8000/*",
+    "http://localhost:8000/*"
+    ],
+    "side_panel": {
+      "default_path": "sidepanel.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_title": "계산기 열기"
+    }
+  }
+  
