@@ -1,50 +1,107 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="entrance.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="entrance.css">
 </head>
+
 <body>
-  <!-- 1. 기존 10% 계산기 카드 (유지) -->
-  <div class="card">
-    <h3>Python 연동 계산기 (10%)</h3>
-    <input type="number" id="numInput" placeholder="숫자 입력 (예: 100)" />
-    <button id="calcBtn">10% 더하기 계산</button>
-    <div id="resultArea" class="result-box">결과가 여기에 표시됩니다.</div>
-  </div>
+    <!-- 1. 기존 10% 계산기 카드 (유지)
+    <div class="card">
+        <h3>Python 연동 계산기 (10%)</h3>
+        <input type="number" id="numInput" placeholder="숫자 입력 (예: 100)" />
+        <button id="calcBtn">10% 더하기 계산</button>
+        <div id="resultArea" class="result-box">결과가 여기에 표시됩니다.</div>
+    </div> -->
 
-  <!-- 2. 새로 추가된 실시간 환율 계산기 카드 -->
-  <div class="card">
-    <h3>실시간 환율 계산기</h3>
+    <!-- 2. 환율 계산기 카드 -->
+    <div class="card">
+        <h3>실시간 환율 계산기</h3>
 
-    <label>From (보유 통화 및 금액)</label>
-    <div class="input-group">
-      <select id="fromCurrency">
-        <!-- 여기는 currency.js 기능으로 채움 -->
-      </select>
-      <input type="number" id="amountInput" placeholder="예: 50000" />
+        <label>From (보유 통화 및 금액)</label>
+        <div class="input-group">
+            <select id="fromCurrency">
+                <!-- 여기는 currency.js 기능으로 채움 -->
+            </select>
+            <input type="number" id="amountInput" placeholder="예: 50000" />
+        </div>
+
+        <label>To (변환할 통화)</label>
+        <div class="input-group">
+            <select id="toCurrency" style="width: 100%;">
+                <!-- 여기는 currency.js 기능으로 채움 -->
+            </select>
+        </div>
+
+        <button id="convertBtn">환율 변환하기 (Enter)</button>
+        <div id="convertResultArea" class="result-box">통화를 선택하고 숫자를 입력하세요.</div>
     </div>
 
-    <label>To (변환할 통화)</label>
-    <div class="input-group">
-      <select id="toCurrency" style="width: 100%;">
-        <!-- 여기는 currency.js 기능으로 채움 -->
-      </select>
+    <!-- 3. 최종 계산기 카드 -->
+    <div class="card">
+        <h3>관세 & 판매세 계산기 (CAD)</h3>
+
+        <div class="input-group">
+            <div style="flex: 1;">
+                <label>소싱 국가 (출발국)</label>
+                <select id="originCountry" style="width: 100%;">
+                    <!-- origins.js 기능으로 채움 -->
+                </select>
+            </div>
+            <div style="flex: 1;">
+                <label>도착 주 (Province)</label>
+                <select id="canadaProvince" style="width: 100%;">
+                    <!-- provinces.js 기능으로 채움 -->
+                </select>
+            </div>
+        </div>
+
+        <label>품목 카테고리</label>
+        <div class="input-group">
+            <select id="itemCategory" style="width: 100%;">
+                <option value="cosmetics" selected>화장품 (Cosmetics)</option>
+                <option value="food">가공식품/간식 (Food)</option>
+                <option value="computer">컴퓨터/전자부품 (Computer)</option>
+                <option value="apparel">의류/잡화 (Apparel)</option>
+                <option value="tools">수공구/장비 (Tools)</option>
+                <option value="general">기타 일반품목 (General)</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <div style="flex: 2;">
+                <label>개당 원가 (CAD)</label>
+                <input type="number" id="cadPriceInput" placeholder="예: 50" />
+            </div>
+            <div style="flex: 1;">
+                <label>수량 (개)</label>
+                <input type="number" id="quantityInput" value="1" min="1" />
+            </div>
+        </div>
+
+        <div style="margin: 8px 0; font-size: 13px; color: #333;">
+            <label style="display: inline-flex; align-items: center; gap: 6px; font-weight: normal; cursor: pointer;">
+                <input type="checkbox" id="useFtaCheck" checked style="width: auto;" />
+                FTA 원산지 면세 적용 (한국/미국산)
+            </label>
+            <br />
+            <label
+                style="display: inline-flex; align-items: center; gap: 6px; font-weight: normal; cursor: pointer; margin-top: 4px;">
+                <input type="checkbox" id="gstRegCheck" style="width: auto;" />
+                사업자 GST/HST 환급 적용 (PST만 계산)
+            </label>
+        </div>
+
+        <button id="taxDutyBtn">관세 + 세금 계산하기 (Enter)</button>
+        <div id="taxDutyResultArea" class="result-box">단가와 주를 선택해 계산하세요.</div>
     </div>
 
-    <button id="convertBtn">환율 변환하기 (Enter)</button>
-    <div id="convertResultArea" class="result-box">통화를 선택하고 숫자를 입력하세요.</div>
-  </div>
 
-  <label>소싱 국가 (출발국)</label>
-    <div class="input-group">
-        <select id="originCountry" style="width: 100%;"></select>
-    </div>
-
-
-  <script src="currency.js"></script> 
-  <script src="sidepanel.js"></script>
-  <script src="origins.js"></script>
-  <script src="provinces.js"></script>
+    <script src="currency.js"></script>
+    <script src="origins.js"></script>
+    <script src="provinces.js"></script>
+    <script src="sidepanel.js"></script>
 </body>
+
 </html>

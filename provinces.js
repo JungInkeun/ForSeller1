@@ -13,13 +13,13 @@ const PROVINCE_LIST = [
 
 // 드롭다운(select)에 옵션을 자동으로 채워주는 함수
 function canadaProvinceDropdowns() {
-    const pronvice = document.getElementById("canadaProvince");
+    const provinceSelect = document.getElementById("canadaProvince");
     if (!provinceSelect) return;
   
     PROVINCE_LIST.forEach((item) => {
       // From 드롭다운 옵션 생성 (기본값: ON)
       const fromOption = new Option(item.label, item.code, false, item.code === "ON");
-      pronvice.add(fromOption);
+      provinceSelect.add(fromOption);
   
     });
   }
