@@ -1,6 +1,11 @@
+# 라이브러리
+import requests
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+
+# 클래스
+from currencyRate import CurrencyRequest
+import currencyRate
 
 app = FastAPI()
 
@@ -12,12 +17,4 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 입력받을 데이터 형식 정의
-class CalcRequest(BaseModel):
-    number: float
-
-@app.post("/calculate")
-def calculate_ten_percent(data: CalcRequest):
-    # 입력받은 숫자에 10%를 더함
-    result = round(data.number * 1.10, 2)
-    return {"input": data.number, "result": result}
+app.include_router(currencyRate.router) # 기능
