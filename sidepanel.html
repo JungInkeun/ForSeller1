@@ -20,12 +20,7 @@
     <label>From (보유 통화 및 금액)</label>
     <div class="input-group">
       <select id="fromCurrency">
-        <option value="KRW" selected>KRW</option>
-        <option value="CAD">CAD</option>
-        <option value="JPY">JYP (JPY)</option>
-        <option value="CNY">CHN (CNY)</option>
-        <option value="EUR">EURO</option>
-        <option value="USD">USD</option>
+        <!-- 여기는 currency.js 기능으로 채움 -->
       </select>
       <input type="number" id="amountInput" placeholder="예: 50000" />
     </div>
@@ -33,12 +28,7 @@
     <label>To (변환할 통화)</label>
     <div class="input-group">
       <select id="toCurrency" style="width: 100%;">
-        <option value="CAD" selected>CAD (캐나다 달러)</option>
-        <option value="KRW">KRW (한국 원)</option>
-        <option value="JPY">JYP / JPY (일본 엔)</option>
-        <option value="CNY">CHN / CNY (중국 위안)</option>
-        <option value="EUR">EURO / EUR (유럽 유로)</option>
-        <option value="USD">USD / USD (미국)</option>
+        <!-- 여기는 currency.js 기능으로 채움 -->
       </select>
     </div>
 
@@ -46,6 +36,15 @@
     <div id="convertResultArea" class="result-box">통화를 선택하고 숫자를 입력하세요.</div>
   </div>
 
+  <label>소싱 국가 (출발국)</label>
+    <div class="input-group">
+        <select id="originCountry" style="width: 100%;"></select>
+    </div>
+
+
+  <script src="currency.js"></script> 
   <script src="sidepanel.js"></script>
+  <script src="origins.js"></script>
+  <script src="provinces.js"></script>
 </body>
 </html>

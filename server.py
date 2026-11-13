@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 # 클래스
 from currencyRate import CurrencyRequest
 import currencyRate
+import taxDuty
 
 app = FastAPI()
 
@@ -17,4 +18,5 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(currencyRate.router) # 기능
+app.include_router(currencyRate.router) # 환율계산 기능
+app.include_router(taxDuty.router) #세금 계산 기능

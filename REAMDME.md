@@ -9,6 +9,7 @@ uvicorn, git, command 명령어
 3-5. git pull origin main (내용 최신으로 동기화)
 3-6. git merge currentCalc (main에 브랜치를 병합)
 3-7. git push origin main
+4. 현재 브랜치 확인 : git branch
 
 manifest.json	신분증 및 출입증	확장 프로그램 이름, 버전, 사용하는 기능(sidePanel), 통신 허용 주소(host_permissions)를 크롬에 알려주는 설정 파일입니다.	쇼핑몰 페이지 읽기 권한(activeTab 등)을 추가하거나, 나중에 실제 배포 서버 주소를 넣을 때만 수정합니다.
 background.js	문지기 (이벤트 감시자)	브라우저 백그라운드에서 대기하다가 사용자가 확장 프로그램 아이콘을 클릭하면 오른쪽 사이드 패널을 열어주는 역할을 합니다.	기본 세팅이 끝났으므로 앞으로 거의 건드릴 일이 없습니다.
