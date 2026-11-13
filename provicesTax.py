@@ -32,9 +32,10 @@ CN_KR_CATEGORY_DUTY_RATES = {
 FTA_ELIGIBLE_ORIGINS = {"KR", "US"}
 
 class TaxDutyRequest(BaseModel):
-    price_cad: float                 # 환율 변환된 제품 원가 (CAD)
-    origin_country: str = "KR"       # 출발국 코드 (KR, JP, TW, US - 기본값 KR)
-    province: str = "ON"             # 도착 주 코드 (MB, ON, AB 등)
-    category: str = "cosmetics"      # 품목 코드 (cosmetics, food, computer 등)
-    use_fta: bool = True             # 원산지 증명(FTA) 제출 여부
-    is_gst_registered: bool = False  # 사업자 GST/HST 환급(ITC) 적용 여부
+    price_cad: float                 # 단품 원가 (CAD)
+    quantity: int = 1                # 수입 수량 (개)
+    origin_country: str = "KR"       # 출발국 (KR, JP, TW, US)
+    province: str = "ON"             # 도착 주 (MB, ON, AB 등)
+    category: str = "cosmetics"      # 품목 (cosmetics, food, computer 등)
+    use_fta: bool = True             # FTA 원산지 증명 적용 여부
+    is_gst_registered: bool = False  # 사업자 GST/HST 환급 여부
