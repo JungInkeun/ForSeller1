@@ -2,20 +2,46 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <style>
-    body { font-family: sans-serif; padding: 20px; background-color: #f8f9fa; }
-    .card { background: white; padding: 16px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    input { width: 100%; padding: 8px; margin: 8px 0; box-sizing: border-box; font-size: 16px; }
-    button { width: 100%; padding: 10px; background-color: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 15px; }
-    .result-box { margin-top: 15px; padding: 12px; background-color: #e8f0fe; border-radius: 4px; font-weight: bold; color: #1967d2; }
-  </style>
+  <link rel="stylesheet" href="entrance.css">
 </head>
 <body>
+  <!-- 1. 기존 10% 계산기 카드 (유지) -->
   <div class="card">
-    <h3>Python 연동 계산기</h3>
+    <h3>Python 연동 계산기 (10%)</h3>
     <input type="number" id="numInput" placeholder="숫자 입력 (예: 100)" />
     <button id="calcBtn">10% 더하기 계산</button>
     <div id="resultArea" class="result-box">결과가 여기에 표시됩니다.</div>
+  </div>
+
+  <!-- 2. 새로 추가된 실시간 환율 계산기 카드 -->
+  <div class="card">
+    <h3>실시간 환율 계산기</h3>
+
+    <label>From (보유 통화 및 금액)</label>
+    <div class="input-group">
+      <select id="fromCurrency">
+        <option value="KRW" selected>KRW</option>
+        <option value="CAD">CAD</option>
+        <option value="JPY">JYP (JPY)</option>
+        <option value="CNY">CHN (CNY)</option>
+        <option value="EUR">EURO</option>
+      </select>
+      <input type="number" id="amountInput" placeholder="예: 50000" />
+    </div>
+
+    <label>To (변환할 통화)</label>
+    <div class="input-group">
+      <select id="toCurrency" style="width: 100%;">
+        <option value="CAD" selected>CAD (캐나다 달러)</option>
+        <option value="KRW">KRW (한국 원)</option>
+        <option value="JPY">JYP / JPY (일본 엔)</option>
+        <option value="CNY">CHN / CNY (중국 위안)</option>
+        <option value="EUR">EURO / EUR (유럽 유로)</option>
+      </select>
+    </div>
+
+    <button id="convertBtn">환율 변환하기 (Enter)</button>
+    <div id="convertResultArea" class="result-box">통화를 선택하고 숫자를 입력하세요.</div>
   </div>
 
   <script src="sidepanel.js"></script>
