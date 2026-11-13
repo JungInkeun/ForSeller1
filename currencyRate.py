@@ -5,21 +5,11 @@ import requests
 # 라우터 생성 (server.py에서 한 줄로 불러오기 위한 객체)
 router = APIRouter()
 
-# 입력받을 데이터 형식 정의
-class CalcRequest(BaseModel):
-    number: float
 
 class CurrencyRequest(BaseModel): #환율
     price: float
     from_currency: str  # 예: KRW, JPY, EUR, USD, CAD
     to_currency: str    # 예: CAD, USD
-
-
-@router.post("/calculate")
-def calculate_ten_percent(data: CalcRequest):
-    # 입력받은 숫자에 10%를 더함
-    result = round(data.number * 1.10, 2)
-    return {"input": data.number, "result": result}
 
 
 @router.post("/convert")
