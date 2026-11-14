@@ -93,3 +93,10 @@ body {
     color: #174ea6;
     margin-top: 4px;
   }
+
+/* 숫자 입력칸의 위아래 화살표(스핀 버튼) 제거 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

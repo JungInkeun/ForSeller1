@@ -1,5 +1,5 @@
 
-// --- 2. 새로운 실시간 환율 계산기 기능 ---
+// --- 1. 새로운 실시간 환율 계산기 기능 ---
 async function runConvert() {
     const fromCurr = document.getElementById("fromCurrency").value;
     const toCurr = document.getElementById("toCurrency").value;
@@ -47,7 +47,7 @@ async function runConvert() {
   });
 
 
-// --- 3. 관세 + 판매세 + 국제 배송비 통합 계산기 기능 ---
+// --- 2. 관세 + 판매세 + 국제 배송비 통합 계산기 기능 ---
 async function runTotalImportCalc() {
   const originCountry = document.getElementById("originCountry").value;
   const province = document.getElementById("canadaProvince").value;
@@ -228,4 +228,12 @@ document.getElementById("amazonFeeBtn").addEventListener("click", runAmazonCalc)
       if (event.key === "Enter") runAmazonCalc();
     });
   }
+});
+
+
+// 모든 숫자 입력칸에서 마우스 휠 / 트랙패드 스크롤로 숫자가 바뀌는 현상 차단
+document.querySelectorAll('input[type="number"]').forEach((input) => {
+  input.addEventListener("wheel", (event) => {
+    event.preventDefault();
+  }, { passive: false });
 });
