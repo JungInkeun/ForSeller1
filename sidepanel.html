@@ -109,6 +109,60 @@
         <div id="taxDutyResultArea" class="result-box">단가와 무게를 입력해 계산하세요.</div>
     </div>
 
+    <!-- 4. 새로 분리된 아마존 판매가 & 마진 계산기 카드 -->
+    <div class="card">
+        <h3>Amazon.ca 판매가 & 마진 계산기</h3>
+
+        <div class="input-group">
+            <div style="flex: 1.5;">
+                <label>개당 수입원가 (CAD)</label>
+                <input type="number" id="amzLandedCostInput" placeholder="예: 20.00" />
+            </div>
+            <div style="flex: 1;">
+                <label>목표 순마진 (%)</label>
+                <input type="number" id="targetMarginInput" value="30" min="1" max="79" />
+            </div>
+        </div>
+
+        <div class="input-group">
+            <div style="flex: 1;">
+                <label>배송 방식</label>
+                <select id="fulfillmentType" style="width: 100%;">
+                    <option value="FBA" selected>FBA (아마존 창고)</option>
+                    <option value="FBM">FBM (셀러 직접배송)</option>
+                </select>
+            </div>
+            <div style="flex: 1;">
+                <label>보관 기간 (개월)</label>
+                <input type="number" id="storageMonthsInput" value="1" min="0" step="0.5" />
+            </div>
+        </div>
+
+        <!-- FBM 선택 시에만 참고할 로컬 배송비 입력칸 -->
+        <div class="input-group">
+            <div style="flex: 1;">
+                <label>FBM 로컬 배송비 (CAD, FBA면 0)</label>
+                <input type="number" id="fbmShippingInput" value="0" min="0" />
+            </div>
+        </div>
+
+        <div style="margin: 8px 0; font-size: 13px; color: #333;">
+            <label style="display: inline-flex; align-items: center; gap: 6px; font-weight: normal; cursor: pointer;">
+                <input type="checkbox" id="peakSeasonCheck" style="width: auto;" />
+                연말 성수기(10~12월) 창고 보관료 적용
+            </label>
+            <br />
+            <label style="display: inline-flex; align-items: center; gap: 6px; font-weight: normal; cursor: pointer; margin-top: 4px;">
+                <input type="checkbox" id="indivPlanCheck" style="width: auto;" />
+                개인 셀러 플랜 적용 (건당 $1.49 추가)
+            </label>
+        </div>
+
+        <button id="amazonFeeBtn">아마존 권장 판매가 계산하기 (Enter)</button>
+        <div id="amazonResultArea" class="result-box">수입원가와 목표 마진을 입력해 계산하세요.</div>
+    </div>
+    
+
 
     <script src="currency.js"></script>
     <script src="origins.js"></script>

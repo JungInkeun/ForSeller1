@@ -8,6 +8,7 @@ from currencyRate import CurrencyRequest
 import currencyRate
 import taxDuty
 import shipping
+import amazonFee
 
 app = FastAPI()
 
@@ -22,3 +23,4 @@ app.add_middleware(
 app.include_router(currencyRate.router) # 환율계산 기능
 app.include_router(taxDuty.router) #세금 계산 기능
 app.include_router(shipping.router) #배송기 계산 기능
+app.include_router(amazonFee.router) #아마존 이용료, 권장판매가 기능
