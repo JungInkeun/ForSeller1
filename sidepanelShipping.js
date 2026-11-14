@@ -14,6 +14,9 @@ async function runTotalImportCalc() {
     const useFta = document.getElementById("useFtaCheck").checked;
     const isGstReg = document.getElementById("gstRegCheck").checked;
     const resultArea = document.getElementById("taxDutyResultArea");
+
+    const canUse = await checkFreeOrPaidUsage(); //10회 무료
+    if (!canUse) return; // 10회 무료   
   
     if (isNaN(priceCad) || priceCad <= 0) {
       resultArea.innerText = "올바른 CAD 단가를 입력해 주세요.";

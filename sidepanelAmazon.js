@@ -15,6 +15,9 @@ async function runAmazonCalc() {
     const heightCm = parseFloat(document.getElementById("heightInput").value) || 5;
   
     const amzResultArea = document.getElementById("amazonResultArea");
+
+    const canUse = await checkFreeOrPaidUsage(); // 결제정보 11회 제한
+    if (!canUse) return; // 결제정보 11회 제한  
   
     if (isNaN(unitLandedCost) || unitLandedCost <= 0) {
       amzResultArea.innerText = "올바른 개당 수입원가(CAD)를 입력해 주세요.";
