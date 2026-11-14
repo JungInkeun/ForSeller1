@@ -29,7 +29,7 @@ async function runConvert() {
       const data = await response.json();
       convertResultArea.innerHTML = `
         <div>적용 환율: 1 ${data.from_currency} = ${data.rate} ${data.to_currency}</div>
-        <div class="big-price">결과: ${data.converted_price} ${data.to_currency}</div>
+        <div class="big-price">결과: ${formatPrice(data.converted_price)} ${data.to_currency}</div>
       `;
     } catch (error) {
       convertResultArea.innerText = "연결 실패: Python 서버(uvicorn)가 실행 중인지 확인하세요.";

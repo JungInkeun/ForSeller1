@@ -1,4 +1,14 @@
 
+// 숫자를 3자리마다 쉼표가 찍힌 문자열로 변환 (예: 440000 -> "440,000" / 53.2 -> "53.20")
+function formatPrice(num) {
+  if (isNaN(num) || num === null) return "0";
+  return Number(num).toLocaleString("en-US", {
+    minimumFractionDigits: Number.isInteger(Number(num)) ? 0 : 2,
+    maximumFractionDigits: 2
+  });
+}
+
+
 // --- 1. 새로운 실시간 환율 계산기 기능 ---
 // sidepanelCurrency.js 에서 불러옴
 

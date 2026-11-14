@@ -54,12 +54,13 @@ async function runAmazonCalc() {
   
       amzResultArea.innerHTML = `
         <div>• 규격 등급: <strong>${data.size_tier}</strong></div>
-        <div>• 추천 수수료 (${data.referral_rate_percent}%): <strong>$${data.referral_fee_cad} CAD</strong></div>
-        <div>• FBA/배송비: <strong>$${data.fulfillment_fee_cad} CAD</strong> | 보관료: <strong>$${data.storage_fee_cad} CAD</strong></div>
-        <div style="font-size:12px; color:#5f6368;">  └ 손익분기 최소 판매가: $${data.breakeven_price_cad} CAD</div>
-        <div class="big-price" style="margin-top:8px;">권장 판매가: $${data.recommended_price_cad} CAD</div>
-        <div style="font-size:13px; font-weight:bold; color:#137333;">개당 예상 순수익: +$${data.net_profit_cad} CAD (${data.target_margin_percent}%)</div>
+        <div>• 추천 수수료 (${data.referral_rate_percent}%): <strong>$${formatPrice(data.referral_fee_cad)} CAD</strong></div>
+        <div>• FBA/배송비: <strong>$${formatPrice(data.fulfillment_fee_cad)} CAD</strong> | 보관료: <strong>$${formatPrice(data.storage_fee_cad)} CAD</strong></div>
+        <div style="font-size:12px; color:#5f6368;">  └ 손익분기 최소 판매가: $${formatPrice(data.breakeven_price_cad)} CAD</div>
+        <div class="big-price" style="margin-top:8px;">권장 판매가: $${formatPrice(data.recommended_price_cad)} CAD</div>
+        <div style="font-size:13px; font-weight:bold; color:#137333;">개당 예상 순수익: +$${formatPrice(data.net_profit_cad)} CAD (${data.target_margin_percent}%)</div>
       `;
+
     } catch (error) {
       amzResultArea.innerText = "연결 실패: Python 서버(uvicorn)가 실행 중인지 확인하세요.";
     }

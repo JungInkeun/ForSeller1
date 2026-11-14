@@ -71,13 +71,13 @@ async function runTotalImportCalc() {
         : "";
   
       resultArea.innerHTML = `
-        <div>• 물품 총액 (${quantity}개): <strong>$${taxData.total_goods_cad} CAD</strong></div>
+        <div>• 물품 총액 (${quantity}개): <strong>$${formatPrice(taxData.total_goods_cad)} CAD</strong></div>
         <div>• 관세 (${taxData.duty_rate_percent}%): <strong>$${taxData.duty_cad} CAD</strong> | 세금(${taxData.province}): <strong>$${taxData.net_tax_cost_cad} CAD</strong></div>
-        <div>• 국제 배송비 (${shipData.method}, ${shipData.estimated_days}): <strong>$${shipData.total_shipping_cad} CAD</strong></div>
+        <div>• 국제 배송비 (${shipData.method}, ${shipData.estimated_days}): <strong>$${formatPrice(shipData.total_shipping_cad)} CAD</strong></div>
               <div style="font-size:12px; color:#5f6368;">  └ 청구중량: ${shipData.chargeable_kg}kg (${shipData.weight_basis})</div>
-        ${quantity > 1 ? `<div style="font-size:12px; color:#5f6368;">  └ ${quantity}개 합산 배송비 $${shipData.total_shipping_cad} CAD → 1개당 $${shipData.unit_shipping_cad} CAD</div>` : ""}
-        <div class="big-price" style="margin-top:8px;">최종 수입원가: $${totalLandedCost} CAD</div>
-        <div style="font-size:13px; font-weight:bold; color:#174ea6;">(개당 최종원가: $${unitLandedCost} CAD)</div>
+        ${quantity > 1 ? `<div style="font-size:12px; color:#5f6368;">  └ ${quantity}개 합산 배송비 $${formatPrice(shipData.total_shipping_cad)} CAD → 1개당 $${formatPrice(shipData.unit_shipping_cad)} CAD</div>` : ""}
+        <div class="big-price" style="margin-top:8px;">최종 수입원가: $${formatPrice(totalLandedCost)} CAD</div>
+        <div style="font-size:13px; font-weight:bold; color:#174ea6;">(개당 최종원가: $${formatPrice(unitLandedCost)} CAD)</div>
         ${noticeHtml}
       `;
       const amzInput = document.getElementById("amzLandedCostInput");
