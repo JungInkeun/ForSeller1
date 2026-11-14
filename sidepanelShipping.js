@@ -25,7 +25,8 @@ async function runTotalImportCalc() {
     try {
       // 1) 관세+세금 API와 2) 배송비 API를 동시에 호출
       const [taxRes, shipRes] = await Promise.all([
-        fetch("http://localhost:8000/tax-duty", {
+        // fetch("http://localhost:8000/tax-duty", {
+          fetch(`${API_BASE_URL}/tax-duty`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -38,7 +39,8 @@ async function runTotalImportCalc() {
             is_gst_registered: isGstReg
           })
         }),
-        fetch("http://localhost:8000/shipping", {
+        // fetch("http://localhost:8000/shipping", {
+          fetch(`${API_BASE_URL}/shipping`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

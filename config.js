@@ -1,0 +1,1 @@
+const API_BASE_URL = "https://for-amazon-sellers.onrender.com";

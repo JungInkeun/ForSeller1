@@ -6,7 +6,8 @@
     "permissions": ["sidePanel"],
     "host_permissions": [
     "http://127.0.0.1:8000/*",
-    "http://localhost:8000/*"
+    "http://localhost:8000/*",
+    "https://for-amazon-sellers.onrender.com/*"
     ],
     "side_panel": {
       "default_path": "sidepanel.html"

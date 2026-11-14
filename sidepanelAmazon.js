@@ -29,7 +29,8 @@ async function runAmazonCalc() {
     amzResultArea.innerText = "아마존 수수료 및 권장 판매가 계산 중...";
   
     try {
-      const response = await fetch("http://localhost:8000/amazon-fee", {
+      // const response = await fetch("http://localhost:8000/amazon-fee", {
+        const response = await fetch(`${API_BASE_URL}/amazon-fee`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
