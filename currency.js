@@ -1,3 +1,26 @@
+const currencyCardHtml = `
+  <div class="card">
+    <h3>실시간 환율 계산기</h3>
+    <label>From (보유 통화 및 금액)</label>
+    <div class="input-group">
+      <select id="fromCurrency" style="flex: 1.2;"></select>
+      <input type="number" id="amountInput" placeholder="예: 50000" style="flex: 1;" />
+    </div>
+    <label>To (변환할 통화)</label>
+    <div class="input-group">
+      <select id="toCurrency" style="width: 100%;"></select>
+    </div>
+    <button id="convertBtn">환율 변환하기 (Enter)</button>
+    <div id="convertResultArea" class="result-box">통화를 선택하고 숫자를 입력하세요.</div>
+  </div>
+`;
+
+const container = document.getElementById("currencyCardContainer");
+if (container) {
+  container.innerHTML = currencyCardHtml;
+}
+
+
 const CURRENCY_LIST = [
     { code: "CAD", label: "CAD (캐나다 달러)" },
     { code: "KRW", label: "KRW (한국 원)" },
