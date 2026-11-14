@@ -30,26 +30,39 @@ body {
     margin-bottom: 12px;
   }
   select {
-    width: 110px;
-    padding: 8px;
-    font-size: 14px;
+    width: 100%;
+    min-width: 0;
+    padding: 8px 6px;
+    font-size: 13px;
     border: 1px solid #dadce0;
     border-radius: 6px;
     background-color: #fff;
     font-weight: bold;
+    box-sizing: border-box;
   }
   input {
     width: 100%;
+    min-width: 0;
     padding: 8px 10px;
-    font-size: 15px;
+    font-size: 14px;
     border: 1px solid #dadce0;
     border-radius: 6px;
     box-sizing: border-box;
   }
+  .input-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .input-group > div {
+    min-width: 0; /* 자식 요소가 카드 밖으로 삐져나가는 현상 방지 */
+  }
   .input-group input {
     flex: 1;
-    width: auto;
   }
+  
   button {
     width: 100%;
     padding: 10px;
