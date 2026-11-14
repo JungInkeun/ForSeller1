@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 
-
-# 1. Amazon.ca 카테고리별 추천 수수료율 (Referral Fee)
+#1. Amazon.ca 카테고리별 추천 수수료율 (Referral Fee)
 AMAZON_CA_REFERRAL_FEES = {
     "cosmetics": {"name": "뷰티/화장품 (Beauty)", "rate": 0.15, "low_price_rate": 0.08, "threshold": 10.0},
     "food":      {"name": "식품/간식 (Grocery)", "rate": 0.15, "low_price_rate": 0.08, "threshold": 15.0},
